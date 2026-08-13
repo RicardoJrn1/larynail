@@ -1,32 +1,37 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { IM_Fell_DW_Pica, Instrument_Serif } from "next/font/google"
 import "./globals.css"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fellPica = IM_Fell_DW_Pica({
+  variable: "--font-fell",
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
   display: "swap",
 })
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument",
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
   display: "swap",
 })
 
 export const metadata: Metadata = {
-  title: "LaryNail - Especialista em Unhas",
-  description: "Laryssa Marinho - Especialista em unhas, transformando autoestima com arte e cuidado.",
-  keywords: ["unhas", "manicure", "nail art", "unhas de gel", "alongamento de unha", "larynail"],
+  title: "LariNail — Especialista em Alongamento com Naturalidade",
+  description:
+    "Laryssa Marinho — Especialista em unhas, transformando autoestima com arte e cuidado. Agende seu horário pelo WhatsApp.",
+  keywords: ["unhas", "manicure", "nail art", "unhas de gel", "alongamento de unha", "larinail"],
   authors: [{ name: "Laryssa Marinho" }],
   creator: "Laryssa Marinho",
   openGraph: {
     type: "website",
-    locale: "pt_BR",
-    title: "LaryNail - Especialista em Unhas",
+    locale: "pt_PT",
+    title: "LariNail — Especialista em Alongamento com Naturalidade",
     description: "Transforme suas unhas com a especialista Laryssa Marinho. Agende seu horário!",
-    siteName: "LaryNail",
+    siteName: "LariNail",
   },
   icons: {
     icon: "/nail_logo.png",
@@ -38,10 +43,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fff1f2" }, // rose-100
-    { media: "(prefers-color-scheme: dark)", color: "#fff1f2" }, // rose-100
-  ],
+  themeColor: "#fdf1f5",
 }
 
 export default function RootLayout({
@@ -50,8 +52,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>{children}</body>
+    <html lang="pt">
+      <body className={`${fellPica.variable} ${instrumentSerif.variable} font-serif antialiased`}>{children}</body>
     </html>
   )
 }
